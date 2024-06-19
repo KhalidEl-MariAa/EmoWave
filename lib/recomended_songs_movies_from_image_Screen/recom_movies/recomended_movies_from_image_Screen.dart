@@ -78,7 +78,7 @@ class RecomendedMoviesFromImageScreen extends StatelessWidget {
                             'Language:',
                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
                           ),
-                          Text(movies[index].language,
+                          Text(Usable.languages[movies[index].language] ,
                               style: const TextStyle(fontSize: 15)),
                           const SizedBox(
                             height: 5,
