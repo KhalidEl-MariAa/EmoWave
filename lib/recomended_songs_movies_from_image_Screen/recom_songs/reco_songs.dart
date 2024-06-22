@@ -27,81 +27,93 @@ class RecomendedSongsFromImageScreen extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
       ),
-      body: CustomScrollView(slivers: [
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
-            child: Column(children: [
-              ListView.separated(
-                separatorBuilder: (context, index) => const SizedBox(
-                  height: 10,
-                ),
-                itemCount: songs.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) => Container(
-                  width: MediaQuery.sizeOf(context).width * 0.75,
-                  constraints: BoxConstraints(
-                      maxWidth: MediaQuery.sizeOf(context).width * 0.65),
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(25)),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 5.0, vertical: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Song ${index + 1}',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 23),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(songs[index].songName),
-                      ],
+      body: Container(
+        decoration: const BoxDecoration(
+                gradient: LinearGradient(colors: [
+               
+                Color(0xff659999),
+                Color(0xfff4791f)
+                // Color.fromARGB(255, 255, 123, 66),
+                // Color.fromARGB(255, 255, 136, 84),
+                // Colors.amber
+              ])
+              ),
+        child: CustomScrollView(slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
+              child: Column(children: [
+                ListView.separated(
+                  separatorBuilder: (context, index) => const SizedBox(
+                    height: 10,
+                  ),
+                  itemCount: songs.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => Container(
+                    width: MediaQuery.sizeOf(context).width * 0.75,
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.sizeOf(context).width * 0.65),
+                    decoration: BoxDecoration(
+                        gradient:const LinearGradient(colors: [ Color(0xff659999),Color(0x0ff1f403)]),
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5.0, vertical: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Song ${index + 1}',
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 23),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(songs[index].songName),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Usable.color),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const TakeSurveyScreen(),
-                        ));
-                  },
-                  child: const Text(
-                    'Take survey',
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.w500),
-                  )),
-              ElevatedButton(
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Usable.color),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomePage(),
-                        ));
-                  },
-                  child: const Text(
-                    'Return to Home',
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.w500),
-                  ))
-            ]),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Usable.color),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const TakeSurveyScreen(),
+                          ));
+                    },
+                    child: const Text(
+                      'Take survey',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.w500),
+                    )),
+                ElevatedButton(
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Usable.color),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomePage(),
+                          ));
+                    },
+                    child: const Text(
+                      'Return to Home',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.w500),
+                    ))
+              ]),
+            ),
           ),
-        ),
-      ]),
+        ]),
+      ),
     ));
   }
 }
