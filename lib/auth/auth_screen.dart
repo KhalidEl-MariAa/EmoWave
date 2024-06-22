@@ -16,7 +16,16 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body:pages[indx] ,
+      body:Container( 
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(colors: [
+               
+                Color(0xff659999),
+                Color(0xfff4791f)
+                
+              ])),
+        
+        child:pages[indx]) ,
       bottomNavigationBar: AuthBottomNavBar(currentIndex: indx,onTap: (p0) {
         indx=p0;
         setState(() {

@@ -27,7 +27,7 @@ class _SignUpViewState extends State<SignUpView> {
             padding: EdgeInsets.only(left: 7),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Text('Sign Up:',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),)),
+              child: Text('Registration:',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),)),
           ),
           //------------------------------------------------------------------------------------------------
           
@@ -66,7 +66,7 @@ class _SignUpViewState extends State<SignUpView> {
             child: TextFormField(
               keyboardType: TextInputType.number,
             decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.question_mark),
+              
               hintText: 'Age',
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(25),)
             ),
