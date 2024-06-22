@@ -10,72 +10,107 @@ class RecordAudioInstructionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            backgroundColor: Usable.color,
-            title: const Text(
-              'Audio Instructions',
-              style: TextStyle(fontWeight: FontWeight.w600),
-            ),
-          ),
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 10.0,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(colors: [
+               
+                Color(0xff659999),
+                Color(0xfff4791f)
+                
+              ])
+        ),
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              backgroundColor: Usable.color,
+              title: const Text(
+                'Audio Instructions',
+                style: TextStyle(fontWeight: FontWeight.w600),
               ),
+            ),
+            SliverFillRemaining(
+              hasScrollBody: false,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
                     height: 15,
                   ),
-                  const Text(
-                      '''1- You will be presented with three questions, and you will need to answer these questions in just one minute in an audio recording,we know it may seem like a short time, but the questions are simple, so there's no need to worry about it.''',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
-                  const SizedBox(
-                    height: 15,
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                    child: Text(
+                        '''1- You will be given three questions to answer in an audio recording within one minute. Although the time may seem brief, the questions are straightforward, so there's no need to worry.''',
+                        style:
+                            TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
                   ),
-                  const Text(
-                      '''2- Try to be in a somewhat quiet place without noise where you can be heard clearly.''',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
-                  const SizedBox(
-                    height: 15,
+                const SizedBox(height: 12,),
+                const Divider(thickness: 1,color: Colors.black,),
+                const SizedBox(height: 12,),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                    child: Text(
+                        '''2- Ensure you are in a relatively quiet place free from noise so that you can be heard clearly.''',
+                        style:
+                            TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
                   ),
-                  const Text(
-                      '''3- Try as much as possible to make the answers reflect your current feelings.''',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
-                  const SizedBox(
-                    height: 15,
+                const SizedBox(height: 12,),
+                const Divider(thickness: 1,color: Colors.black,),
+                const SizedBox(height: 12,),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                    child: Text(
+                        '''3- Try to ensure your answers genuinely reflect your current feelings as much as possible.''',
+                        style:
+                            TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
                   ),
-                  const Text(
-                      '''4- Avoid using audio recordings that contain noise or unclear sound, as this will negatively affect your results.''',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
-                  const SizedBox(
-                    height: 15,
+                const SizedBox(height: 12,),
+                const Divider(thickness: 1,color: Colors.black,),
+                const SizedBox(height: 12,),
+                  const Padding(
+                    padding:EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                    child: Text(
+                        '''4- Avoid using audio recordings with noise or unclear sound, as this will negatively impact your results.''',
+                        style:
+                            TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
                   ),
-                  const Text(
-                      '''5- At the start of your audio recording, it will automatically stop after one minute. You can listen to your recording before sending it to us.''',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
-                  const SizedBox(
-                    height: 15,
+                const SizedBox(height: 12,),
+                const Divider(thickness: 1,color: Colors.black,),
+                const SizedBox(height: 12,),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                    child: Text(
+                        '''5- Your audio recording will automatically stop after one minute. You can listen to your recording before sending it to us.''',
+                        style:
+                            TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
                   ),
-                  const Text(
-                      '''6- You have one chance to record your answers to ensure that there is no fabrication of emotions by any user and to ensure that you think carefully about what you feel.''',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
+                const SizedBox(height: 12,),
+                const Divider(thickness: 1,color: Colors.black,),
+                const SizedBox(height: 12,),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                    child: Text(
+                        '''6- You have one opportunity to record your answers. This measure is in place to prevent the fabrication of emotions and to encourage thoughtful consideration of your feelings.''',
+                        style:
+                            TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
+                  ),
                   const SizedBox(
                     height: 15,
                   ),
                   const Center(
                       child: Text(
-                    'Thank you for reading, I wish you an excellent experience!',
+                    'Thank you for your attention. I hope you have a great experience!',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )),
@@ -104,9 +139,9 @@ class RecordAudioInstructionsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
