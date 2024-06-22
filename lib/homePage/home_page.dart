@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: Usable.color,
+            backgroundColor: Color(0xff649599),
             title: const Text(
               'Choose :',
               style: TextStyle(color: Colors.white),
@@ -35,11 +35,12 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               decoration: const BoxDecoration(
                   gradient: LinearGradient(colors: [
-                Colors.red,
-                Colors.red,
-                Color.fromARGB(255, 255, 123, 66),
-                Color.fromARGB(255, 255, 136, 84),
-                Colors.amber
+               
+                Color(0xff659999),
+                Color(0xfff4791f)
+                // Color.fromARGB(255, 255, 123, 66),
+                // Color.fromARGB(255, 255, 136, 84),
+                // Colors.amber
               ])),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
