@@ -11,53 +11,80 @@ class VideoInstructionsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            centerTitle: true,
-            backgroundColor: Usable.color,
-            title: const Text(
-              'Instructions',
-              style: TextStyle(fontWeight: FontWeight.w600),
-            ),
-          ),
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 10.0,
+      body: Container(
+        decoration: const BoxDecoration(
+                gradient: LinearGradient(colors: [
+               
+                Color(0xff659999),
+                Color(0xfff4791f)
+                // Color.fromARGB(255, 255, 123, 66),
+                // Color.fromARGB(255, 255, 136, 84),
+                // Colors.amber
+              ])
               ),
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              centerTitle: true,
+              backgroundColor: Usable.color,
+              title: const Text(
+                'Instructions',
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+            ),
+            SliverFillRemaining(
+              hasScrollBody: false,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
                     height: 15,
                   ),
-                  const Text(
-                      '''1- Try to be in a place with good lighting where you can see clearly.''',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
-                  const SizedBox(
-                    height: 15,
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                    child: Text(
+                        '''1- Try to be in a place with good lighting where you can see clearly.''',
+                        style:
+                            TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
                   ),
-                  const Text(
-                      '''2- Try to take a Video that shows entire face clearly.''',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
-                  const SizedBox(
-                    height: 15,
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                    child: Text(
+                        '''2- Please try to capture a video that clearly shows your entire face.''',
+                        style:
+                            TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
                   ),
-                  const Text(
-                      '''3- Try as much as possible to make the Video reflect your current feelings.''',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
-                  const SizedBox(
-                    height: 15,
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                  const Padding(
+                    padding:EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                    child: Text(
+                        '''3- Please endeavor to ensure that the video reflects your current emotions as accurately as possible.''',
+                        style:
+                            TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
                   ),
-                  const Text(
-                      '''4- Avoid using blurry and low-quality Videos.''',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                    child: Text(
+                        '''4- Avoid using blurry and low-quality Videos.''',
+                        style:
+                            TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
+                  ),
                   const SizedBox(
                     height: 15,
                   ),
@@ -91,9 +118,9 @@ class VideoInstructionsScreen extends StatelessWidget {
                   )
                 ],
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     ));
   }
