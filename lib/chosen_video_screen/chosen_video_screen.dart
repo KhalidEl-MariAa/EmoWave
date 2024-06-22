@@ -31,53 +31,77 @@ class _ChodenVideoScreenState extends State<ChodenVideoScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              centerTitle: true,
-              backgroundColor: Usable.color,
-              title: const Text(
-                'Questions',
-                style: TextStyle(fontWeight: FontWeight.w600),
+        body: Container(
+           decoration: const BoxDecoration(
+                gradient: LinearGradient(colors: [
+               
+                Color(0xff659999),
+                Color(0xfff4791f)
+                // Color.fromARGB(255, 255, 123, 66),
+                // Color.fromARGB(255, 255, 136, 84),
+                // Colors.amber
+              ])
               ),
-            ),
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: BlocConsumer<SendVideoCubit, SendVideoState>(
-                listener: (context, state) {
-                  // TODO: implement listener
-                },
-                builder: (context, state) {
-                  if (state is SendVideoInitial){
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10.0,
-                    ),
-                    child: Column(
+          child: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                centerTitle: true,
+                backgroundColor: Usable.color,
+                title: const Text(
+                  'Questions',
+                  style: TextStyle(fontWeight: FontWeight.w600),
+                ),
+              ),
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: BlocConsumer<SendVideoCubit, SendVideoState>(
+                  listener: (context, state) {
+                    // TODO: implement listener
+                  },
+                  builder: (context, state) {
+                    if (state is SendVideoInitial){
+                    return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(
                           height: 15,
                         ),
-                        const Text('''Q1- How was your day? 
-(Summary what you did and what you felt)''',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 17)),
-                        const SizedBox(
-                          height: 25,
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
+                        horizontal: 10.0,
+                      ),
+                          child: Text('''Q1- How was your day? ''',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 17)),
                         ),
-                        const Text(
-                            '''Q2- How would you describe your tasks today and how you felt when you finished it?''',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 17)),
-                        const SizedBox(
-                          height: 25,
+                        const Center(
+                          child: Text('(Summary what you did and what you felt)',style: TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 17))),
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
+                        horizontal: 10.0,
+                      ),
+                          child: Text(
+                              '''Q2- How would you describe your tasks today and how you felt when you finished it?''',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 17)),
                         ),
-                        const Text(
-                            '''Q3- Have you accomplished what you planned?.''',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 17)),
-
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
+                        horizontal: 10.0,
+                      ),
+                          child: Text(
+                              '''Q3- Have you accomplished what you planned?.''',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 17)),
+                        ),
+                              
                         const SizedBox(
                           height: 25,
                         ),
@@ -91,7 +115,7 @@ class _ChodenVideoScreenState extends State<ChodenVideoScreen> {
                           height: 50,
                         ),
                         //-------------------------------------------------------------------------------------------------------------
-
+                              
                         Center(
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -120,7 +144,7 @@ class _ChodenVideoScreenState extends State<ChodenVideoScreen> {
                               )),
                         ),
                         //------------------------------------------------------------------------------------------------------------
-
+                              
                         videofile == null
                             ? const SizedBox()
                             : const SizedBox(
@@ -187,114 +211,114 @@ class _ChodenVideoScreenState extends State<ChodenVideoScreen> {
                                 ],
                               )
                       ],
-                    ),
-                  );}
-                  else if(state is SendVideoSucess){
-                   return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    RecomendedMoviesFromImageScreen(
-                                        movies: state.recommendedMovies),
-                              ));
-                        },
-                        child: Container(
-                          height: MediaQuery.sizeOf(context).height * 0.25,
-                          decoration: BoxDecoration(
-                              color: Colors.amber,
-                              borderRadius: BorderRadius.circular(25)),
-                          child: const Center(
-                            child: Text(
-                              'Movies',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 25),
+                    );}
+                    else if(state is SendVideoSucess){
+                     return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      RecomendedMoviesFromImageScreen(
+                                          movies: state.recommendedMovies),
+                                ));
+                          },
+                          child: Container(
+                            height: MediaQuery.sizeOf(context).height * 0.25,
+                            decoration: BoxDecoration(
+                                color: Colors.amber,
+                                borderRadius: BorderRadius.circular(25)),
+                            child: const Center(
+                              child: Text(
+                                'Movies',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 25),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    RecomendedSongsFromImageScreen(
-                                        songs: state.recommendedSongs),
-                              ));
-                        },
-                        child: Container(
-                          height: MediaQuery.sizeOf(context).height * 0.25,
-                          decoration: BoxDecoration(
-                              color: Colors.amber,
-                              borderRadius: BorderRadius.circular(25)),
-                          child: const Center(
-                            child: Text(
-                              'Songs',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 25),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      RecomendedSongsFromImageScreen(
+                                          songs: state.recommendedSongs),
+                                ));
+                          },
+                          child: Container(
+                            height: MediaQuery.sizeOf(context).height * 0.25,
+                            decoration: BoxDecoration(
+                                color: Colors.amber,
+                                borderRadius: BorderRadius.circular(25)),
+                            child: const Center(
+                              child: Text(
+                                'Songs',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 25),
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
-                  );
-                  }
-                  else if (state is SendVideoFailure){
-                    return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(state.errorMsg),
-                              ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: Usable.color),
-                                  onPressed: () async {
-                                    if (videofile != null) {
-                                      BlocProvider.of<SendVideoCubit>(
-                                              context)
-                                          .addVideoToGetTheRecommends(videoPath: videofile!.path);
-                                    } else {
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                          const SnackBar(
-                                              content: Text(
-                                                  'Video are Null')));
-                                    }
-                                  },
-                                  child: const Text(
-                                    'Try Again',
-                                    style: TextStyle(color: Colors.white),
-                                  ))
-                    ],
-                  );
-                  }
-                  else{
-                    return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  LoadingAnimationWidget.beat(
-                                color: const Color(0xffF67D48), size: 60),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Text(
-                              'This will take few minutes, please wait',
-                              style: TextStyle(color: Colors.black),
-                            )
-                ],
-              );
-                  }
-
-                },
-              ),
-            )
-          ],
+                        )
+                      ],
+                    );
+                    }
+                    else if (state is SendVideoFailure){
+                      return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(state.errorMsg),
+                                ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor: Usable.color),
+                                    onPressed: () async {
+                                      if (videofile != null) {
+                                        BlocProvider.of<SendVideoCubit>(
+                                                context)
+                                            .addVideoToGetTheRecommends(videoPath: videofile!.path);
+                                      } else {
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                            const SnackBar(
+                                                content: Text(
+                                                    'Video are Null')));
+                                      }
+                                    },
+                                    child: const Text(
+                                      'Try Again',
+                                      style: TextStyle(color: Colors.white),
+                                    ))
+                      ],
+                    );
+                    }
+                    else{
+                      return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    LoadingAnimationWidget.beat(
+                                  color: const Color(0xffF67D48), size: 60),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Text(
+                                'This will take few minutes, please wait',
+                                style: TextStyle(color: Colors.black),
+                              )
+                  ],
+                );
+                    }
+          
+                  },
+                ),
+              )
+            ],
+          ),
         ),
         // body: BlocConsumer<SendVideoCubit, SendVideoState>(
         //   listener: (context, state) {
