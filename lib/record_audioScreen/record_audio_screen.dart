@@ -109,22 +109,29 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
     return PopScope(
       canPop: false, 
       child: Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              centerTitle: true,
-              backgroundColor: Usable.color,
-              title: Text(
-                is_responsed ? 'Choose' : 'Questions',
-                style: const TextStyle(fontWeight: FontWeight.w600),
+        body: Container(
+          decoration: const BoxDecoration(
+                gradient: LinearGradient(colors: [
+               
+                Color(0xff659999),
+                Color(0xfff4791f)
+                // Color.fromARGB(255, 255, 123, 66),
+                // Color.fromARGB(255, 255, 136, 84),
+                // Colors.amber
+              ])
               ),
-            ),
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10.0,
+          child: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                centerTitle: true,
+                backgroundColor: Usable.color,
+                title: Text(
+                  is_responsed ? 'Choose' : 'Questions',
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
+              ),
+              SliverFillRemaining(
+                hasScrollBody: false,
                 child: BlocConsumer<SendImageAndRecordCubit,
                     SendImageAndRecordState>(
                   listener: (context, state) {
@@ -181,25 +188,41 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                           const SizedBox(
                             height: 15,
                           ),
-                          const Text('''Q1- How was your day? 
-(Summary what you did and what you felt)''',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 17)),
-                          const SizedBox(
-                            height: 25,
+                          const Padding(
+                            padding: EdgeInsets.symmetric(
+                    horizontal: 10.0,
+                  ),
+                            child: Text('''Q1- How was your day? ''',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 17)),
                           ),
-                          const Text(
-                              '''Q2- How would you describe your tasks today and how you felt when you finished it?''',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 17)),
-                          const SizedBox(
-                            height: 25,
+                         const Center(child: Text('(Summary what you did and what you felt)',style: TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 17)),),
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(
+                    horizontal: 10.0,
+                  ),
+                            child: Text(
+                                '''Q2- How would you describe your tasks today and how you felt when you finished it?''',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 17)),
                           ),
-                          const Text(
-                              '''Q3- Have you accomplished what you planned?.''',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 17)),
-      
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(
+                    horizontal: 10.0,
+                  ),
+                            child: Text(
+                                '''Q3- Have you accomplished what you planned?.''',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 17)),
+                          ),
+                                
                           const SizedBox(
                             height: 25,
                           ),
@@ -230,12 +253,12 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                                       child: Icon(Icons.mic_none_sharp)),
                                 )
                               : const SizedBox(),
-      
+                                
                           //  isrecorded?MusicVisualizer(
                           //               barCount: 30,
                           //               colors: [Color(0xffF67D48),Color(0xffF67D48),Color(0xffF67D48),Color(0xffF67D48)],
                           //               duration: [900, 700, 600, 800, 500],):SizedBox(),
-      
+                                
                           recordfinish
                               ? const SizedBox()
                               : Center(
@@ -252,13 +275,13 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                                             toFile: rec1path,
                                             codec: Codec.pcm16WAV,
                                           );
-      
+                                
                                           start = 60;
                                           Future.delayed(
                                             const Duration(minutes: 1),
                                             () async {
                                               await recorder.stopRecorder();
-      
+                                
                                               setState(() {
                                                 recordfinish = true;
                                                 isrecorded = false;
@@ -270,7 +293,7 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                                                           'Thats great work!')));
                                             },
                                           );
-      
+                                
                                           initTimer();
                                         } catch (e) {
                                           ScaffoldMessenger.of(context)
@@ -285,9 +308,9 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                                       )),
                                 ),
                           //-----------------------------------------------------------------------------------------------
-      
+                                
                           //--------------------------------------------------------------------------------------------------------------------------------------------
-      
+                                
                           isplayedClick
                               ? const SizedBox()
                               : Center(
@@ -299,7 +322,7 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                                           setState(() {
                                             sliVal = 0;
                                           });
-      
+                                
                                           await player.startPlayer(
                                               fromURI: rec1path,
                                               codec: Codec.pcm16WAV);
@@ -320,7 +343,7 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                                       )),
                                 ),
                           //--------------------------------------------------------------------------------------------------------------
-      
+                                
                           recordfinish
                               ? IgnorePointer(
                                   child: Slider(
@@ -333,9 +356,9 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                                   ),
                                 )
                               : const SizedBox(),
-      
+                                
                           //-----------------------------------------------------------------------------------------------------------------------
-      
+                                
                           
                           recordfinish
                               ? Center(
@@ -382,7 +405,7 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                             child: Container(
                               height: MediaQuery.sizeOf(context).height*0.25,
                               decoration: BoxDecoration(
-                                  color: Colors.amber,
+                                  gradient: const LinearGradient(colors: [ Color(0xff659999),Color(0x0ff1f403)]),
                                   borderRadius: BorderRadius.circular(25)),
                               child:const Center(
                                 child: const Text(
@@ -408,7 +431,7 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                             child: Container(
                               height: MediaQuery.sizeOf(context).height*0.25,
                               decoration: BoxDecoration(
-                                  color: Colors.amber,
+                                  gradient: const LinearGradient(colors: [ Color(0xff659999),Color(0x0ff1f403)]),
                                   borderRadius: BorderRadius.circular(25)),
                               child: const Center(
                                 child: Text(
@@ -438,9 +461,9 @@ class _RecordAudioScreenState extends State<RecordAudioScreen> {
                     }
                   },
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
