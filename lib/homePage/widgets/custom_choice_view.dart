@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:weza_app/core/usable.dart';
 
 class CustomChoiceView extends StatelessWidget {
@@ -23,7 +24,9 @@ class CustomChoiceView extends StatelessWidget {
                height: MediaQuery.sizeOf(context).height*0.22,
                width: MediaQuery.sizeOf(context).width*0.9,
               decoration: BoxDecoration(
-                color: Colors.amber,
+                gradient: LinearGradient(colors: [ Color(0xff659999),Color(0xff1f403)]),
+                
+                // color: Color.fromARGB(255, 194, 186, 209),
                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(25),bottomLeft: Radius.circular(25)),
                 border: Border.all(color: Colors.grey.withOpacity(0.2),)
               ),
