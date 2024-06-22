@@ -22,31 +22,63 @@ class _ImageInstructionsScreenState extends State<ImageInstructionsScreen> {
           title: const Text('Instructions for better results',style: TextStyle(fontWeight: FontWeight.w600),),),
           SliverFillRemaining(
             hasScrollBody: false,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0,),
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(colors: [
+               
+                Color(0xff659999),
+                Color(0xfff4791f)
+                // Color.fromARGB(255, 255, 123, 66),
+                // Color.fromARGB(255, 255, 136, 84),
+                // Colors.amber
+              ])
+              ),
               child: Column(
                 
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 15,),
-                  const Text('''1- Try to be in a place with good lighting where you can see clearly.'''
-                  ,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17)),
-                  const SizedBox(height: 15,),
-                  const Text('''2- Try to take a picture that shows entire face clearly.'''
-                  ,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17)),
-                  const SizedBox(height: 15,),
-                  const Text('''3- Try as much as possible to make the picture reflect your current feelings.'''
-                  ,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17)),
-                  const SizedBox(height: 15,),
-                  const Text('''4- Avoid using blurry and low-quality photos.'''
-                  ,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17)),
-                  const SizedBox(height: 15,),
-                  const Text('''5- After taking the picture, you will move on to answer some questions. There will also be instructions on how to do so, so don't worry.'''
-                   ,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17)
-                   ),
-
-                   const SizedBox(height: 15,),
-                  const Center(child: Text('Thank you for reading, I wish you an excellent experience!',textAlign: TextAlign.center,
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0,),
+                    child: Text('''1- Ensure you are in a well-lit area where visibility is clear.'''
+                    ,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17)),
+                  ),
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0,),
+                    child: Text('''2- Try to take a picture that shows your entire face clearly.'''
+                    ,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17)),
+                  ),
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                  const Padding(
+                    padding:EdgeInsets.symmetric(horizontal: 10.0,),
+                    child: Text('''3- Strive to capture the image in a way that reflects your current emotions as accurately as possible.'''
+                    ,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17)),
+                  ),
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0,),
+                    child: Text('''4- Avoid using blurry and low-quality photos.'''
+                    ,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17)),
+                  ),
+                  const SizedBox(height: 12,),
+                  const Divider(thickness: 1,color: Colors.black,),
+                  const SizedBox(height: 12,),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0,),
+                    child: Text('''5- After taking the picture, you will proceed to answer a series of questions. Detailed instructions will be provided, so there's no need to worry.'''
+                     ,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17)
+                     ),
+                  ),
+                            
+                   const SizedBox(height: 25,),
+                  const Center(child: Text('Thank you for reading. I hope you have an excellent experience!',textAlign: TextAlign.center,
                   style: TextStyle(fontWeight: FontWeight.bold),)),
                   const SizedBox(height: 15,),
                   Center(
@@ -64,7 +96,7 @@ class _ImageInstructionsScreenState extends State<ImageInstructionsScreen> {
                     
                   ),
               //------------------------------------------------------------------------------------------------------------
-
+                            
                   imagefile==null?const SizedBox():const SizedBox(height: 15,),
                   imagefile==null?const SizedBox():
                   Center(
