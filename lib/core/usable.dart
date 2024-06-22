@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class Usable {
-  static Color? color = const Color(0xffF67D48);
+  static Color? color = const Color(0xff649599);
   static Map languages = {
     "en": "English",
     "fr": "French",
